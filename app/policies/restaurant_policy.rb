@@ -7,6 +7,10 @@ class RestaurantPolicy < ApplicationPolicy
     user == record.user
   end
 
+  def create?
+    !user.nil?
+  end
+
   class Scope < Scope
     def resolve
       scope.all
